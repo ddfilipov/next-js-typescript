@@ -3,10 +3,12 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import HelloPage from "./hello";
+import axios from "axios";
+import { GetStaticProps } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ characters }: any) {
     return (
         <div className={styles.main}>
             <Head>
@@ -15,7 +17,21 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            {JSON.stringify(characters)}
             <HelloPage />
         </div>
     );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    console.log("holaaaaaaaaaaaaaaaaaaaaa");
+    // const res = await axios.get("http://rickandmortyapi.com/api/character");
+    const res = await fetch("http://rickandmortyapi.com/api/character");
+    console.log(res);
+    const { results } = await res.json();
+    console.log(results);
+    return {
+        props: { characters: results },
+    };
+};
+// export const getServerSideProps = async () => {};
