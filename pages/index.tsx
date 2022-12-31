@@ -26,7 +26,6 @@ export default function Home({ characters }: any) {
 export const getStaticProps: GetStaticProps = async (context) => {
     console.log("holaaaaaaaaaaaaaaaaaaaaa");
     const res = await axios.get("http://rickandmortyapi.com/api/character");
-    // const res = await fetch("http://rickandmortyapi.com/api/character");
     console.log(res);
     const { results } = await res.data;
     console.log(results);
