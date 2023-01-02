@@ -19,6 +19,7 @@ export default function Home({ characters }: any) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {JSON.stringify(characters)}
+            <HelloPage />
         </>
         // </div>
     );
