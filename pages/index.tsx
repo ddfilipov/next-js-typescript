@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import HelloPage from "./hello";
 import axios from "axios";
 import { GetStaticProps } from "next";
+import { GetCharacterResults } from "../types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     console.log("holaaaaaaaaaaaaaaaaaaaaa");
     const res = await axios.get("http://rickandmortyapi.com/api/character");
     console.log(res);
-    const { results } = await res.data;
+    const { results }: GetCharacterResults = await res.data;
     console.log(results);
     return {
         props: { characters: results },
