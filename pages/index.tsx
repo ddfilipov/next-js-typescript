@@ -8,7 +8,7 @@ import { Character, CharacterWrapper, GetCharacterResults } from "../types";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({characters}: CharacterWrapper) {
+export default function Home({ characters }: CharacterWrapper) {
     return (
         // <div className={styles.main}>
         <>
@@ -18,8 +18,8 @@ export default function Home({characters}: CharacterWrapper) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            {characters.map((character: any, index: number) => {
-                return <li>{character.name} </li>;
+            {characters.map((character) => {
+                return <li key={character.id}>{character.name} </li>;
             })}
             <HelloPage />
         </>
