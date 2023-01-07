@@ -10,6 +10,10 @@ export interface Info {
     prev: null;
 }
 
+export interface CharacterWrapper{
+    characters: Character[];
+}
+
 export interface Character {
     id: number;
     name: string;
