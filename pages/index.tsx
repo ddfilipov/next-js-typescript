@@ -19,7 +19,12 @@ export default function Home({ characters }: CharacterWrapper) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {characters.map((character) => {
-                return <li key={character.id}>{character.name} </li>;
+                return (
+                    <div key={character.id}>
+                        {character.name}
+                        <Image src={character.image} alt={character.id.toString()} width={200} height={100}></Image>
+                    </div>
+                );
             })}
             <HelloPage />
         </>
