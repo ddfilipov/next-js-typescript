@@ -5,6 +5,7 @@ import HelloPage from "./hello";
 import axios from "axios";
 import { GetStaticProps, NextPage } from "next";
 import { Character, CharacterWrapper, GetCharacterResults } from "../types";
+import ImageLoader from "../imageLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,14 @@ export default function Home({ characters }: CharacterWrapper) {
                 return (
                     <div key={character.id}>
                         {character.name}
-                        <Image src={character.image} alt={character.id.toString()} width={200} height={100}></Image>
+                        <Image
+                            src={character.image}
+                            alt={character.id.toString()}
+                            width={200}
+                            height={100}
+                            loader={ImageLoader}
+                            unoptimized
+                        ></Image>
                     </div>
                 );
             })}
