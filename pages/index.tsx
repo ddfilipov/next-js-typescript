@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
+import Link from "next/link";
 import HelloPage from "./hello";
 import axios from "axios";
 import { GetStaticProps, NextPage } from "next";
@@ -22,7 +23,9 @@ export default function Home({ characters }: CharacterWrapper) {
             {characters.map((character) => {
                 return (
                     <div key={character.id}>
-                        {character.name}
+                        <Link href={`/character/${character.id}`}>
+                            <h3>{character.name}</h3>
+                        </Link>
                         <Image
                             src={character.image}
                             alt={character.id.toString()}
